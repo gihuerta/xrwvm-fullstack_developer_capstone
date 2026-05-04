@@ -79,7 +79,7 @@ def initiate():
         {
             "name": "Carnival",
             "type": "SUV",
-            "year": 2023
+            "year": 2023,
             "car_make": car_make_instances[3]
         },
         {
