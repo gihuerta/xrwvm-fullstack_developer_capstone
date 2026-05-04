@@ -53,7 +53,6 @@ def logout_request(request):
 # Create a `registration` view to handle sign up request
 @csrf_exempt
 def registration(request):
-    
 
     # Load JSON data from the request body
     data = json.loads(request.body)
@@ -63,13 +62,12 @@ def registration(request):
     last_name = data['lastName']
     email = data['email']
     username_exists = False
-    
 
     try:
         User.objects.get(username=username)
         username_exists = True
     except Exception as err:
-        logger.debug("{err} error has occurred".format(err))
+        logger.debug("{} error has occurred".format(err))
         logger.debug("{} is new user".format(username))
 
     if not username_exists:
@@ -100,7 +98,7 @@ def get_cars(request):
 
 # # Update the `get_dealerships` view to render the index page with
 # a list of dealerships
-# Update the `get_dealerships` render list of dealerships all by default, 
+# Update the `get_dealerships` render list of dealerships all by default,
 # particular state if state is passed
 def get_dealerships(request, state="All"):
     if (state == "All"):
