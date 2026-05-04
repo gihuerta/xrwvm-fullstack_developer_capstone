@@ -6,14 +6,17 @@ from .models import CarMake, CarModel
 
 # CarModelInline class
 class CarModelInline(admin.StackedInline):
+
     model = CarModel
-    
+
 # CarModelAdmin class
 class CarModelAdmin(admin.ModelAdmin):
-    fields = ['car_make','name','type','year']
+
+    fields = ['car_make', 'name', 'type', 'year']
 
 # CarMakeAdmin class with CarModelInline
 class CarMakeAdmin(admin.ModelAdmin):
+
     fields = ['name','description']
     inlines = [CarModelInline]
 
